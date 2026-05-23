@@ -468,7 +468,7 @@
             position: relative;
             max-width: 560px;
             width: 100%;
-            padding: 52px clamp(24px, 5vw, 52px);
+            padding: 20px clamp(24px, 5vw, 52px);
             background: linear-gradient(145deg, var(--bg-card), #1a0314);
             border-radius: var(--radius-xl);
             transform: scale(.9) translateY(20px);
@@ -506,7 +506,7 @@
         }
 
         .modal-lock-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 16px;
             animation: floatStar 3s ease-in-out infinite;
         }
@@ -1460,13 +1460,13 @@
             <div class="modal-lock-icon">🔐</div>
             <h2 class="modal-title">رسالة خاصة جداً<br />ليكِ لوحدك</h2>
             <div class="modal-body">
-                يا حبيبتي،<br /><br />
+                يا حبيبتي،<br />
                 في لحظات كتير بيجي في بالي إني أقولك حاجات
-                بس الوقت أو المكان مش بيساعد — فخليني أقولهالك هنا.<br /><br />
+                بس الوقت أو المكان مش بيساعد — فخليني أقولهالك هنا.<br />
                 <strong>بخاف عليكِ أوي.</strong> مش خوف ضعف —
-                خوف إن اللي عندي أغلى من إني أسيبه يتأذى.<br /><br />
+                خوف إن اللي عندي أغلى من إني أسيبه يتأذى.<br />
                 وعارف إن في أيام بتحسّي إني مش فاهم —
-                بس اعرفي إني بحاول أفهم كل يوم أكتر من اللي قبله.<br /><br />
+                بس اعرفي إني بحاول أفهم كل يوم أكتر من اللي قبله.<br />
                 <strong>انتِ مش مجرد خطيبتي.</strong>
                 انتِ اللي بشوفها وبحس إن الدنيا تمام.
             </div>
@@ -1502,14 +1502,17 @@
         /* ══ CURTAIN ══════════════════════════════════════════ */
         function openCurtain() {
             const curtain = document.getElementById('curtain');
+            const curtaincenter = document.getElementById('curtain-center');
             curtain.classList.add('open');
+            curtaincenter.style.opacity = '0';
+
             setTimeout(() => {
                 curtain.style.display = 'none';
                 playMusic();
                 document.getElementById('music-btn').classList.add('visible');
                 triggerReveal();
                 startTyping();
-            }, 1500);
+            }, 1000);
         }
 
         /* ══ MUSIC ════════════════════════════════════════════ */
@@ -1537,7 +1540,7 @@
         /* ══ TYPING EFFECT ════════════════════════════════════ */
         function startTyping() {
             // ✏️ غيّر الاسم الدلع هنا بسهولة
-            const PET_NAME = 'يا قلبي';
+            const PET_NAME = 'يا منون';
 
             const lines = [
                 'كل عام وانتِ قلبي',
@@ -1561,7 +1564,7 @@
                     if (li < lines.length) {
                         text += '\n';
                         el.innerHTML = text.split('\n').join('<br/>');
-                        setTimeout(type, 500); 
+                        setTimeout(type, 500);
                     }
                 }
             }
